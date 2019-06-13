@@ -1,0 +1,13 @@
+function distMatrix = SetDistance(X,Y,lambda)
+Gsize = size(X,2);
+Xs=-X(:,1:Gsize-1)+repmat(X(:,Gsize),1,Gsize-1);
+Xlast=X(:,Gsize);
+TSize = size(Y,2);
+Ys=Y(:,1:TSize-1)-repmat(Y(:,TSize),1,TSize-1);
+Ylast=Y(:,TSize);
+D=[Ys,Xs];                        
+b=Xlast-Ylast;
+[m Nt]= size(D);
+norms = sum((D - repmat(b, [1 Nt])).^2);
+b_hat = D*((D'*D+lambda*eye(size(D,2),size(D,2)))\(D'*b));
+distMatrix=(norm(b-b_hat)).^2;
