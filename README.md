@@ -10,3 +10,5 @@ The matlab code for Set-To-Set distance based hyperspectral image classification
   organization={IEEE}
 }
 ```
+
+PaviaU dataset can be downloaded from http://www.ehu.eus/ccwintco/uploads/e/ee/PaviaU.mat
